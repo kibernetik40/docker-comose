@@ -26,3 +26,6 @@ services:
    -db
   ports:
    - 8080:80
+  volumes:
+   my-volum-mysql:
+   my-volum-web:

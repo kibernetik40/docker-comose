@@ -2,7 +2,7 @@ version: '3.9'
 services:
                 db:
                     container_name: arm_mysql
-                    build: /home/clients-docker/tnayin/mysql
+                    image: armanchik1987/arms_mysql
                     volumes:
                     - my-vol_myqsl:/var/lib/mysql
                     ports:
@@ -16,7 +16,7 @@ services:
                     - 8080:80
                 web:
                     container_name: arm_web
-                    build: /home/clients-docker/tnayin/web
+                    image: armanchik1987/arms_web
                     depends_on:
                     - phpmyadmin
                     volumes:

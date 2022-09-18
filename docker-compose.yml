@@ -23,6 +23,6 @@ services:
                     - my-vol_web:/var/www/html/file
                     ports:
                     - 80:80
-volumes:
+                volumes:
                 my-vol_web:
                 my-vol_myqsl:

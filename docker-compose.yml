@@ -1,27 +1,29 @@
-version: '3'
-services:
- db:
-  container_name: arm_db
-  restart: always
-  build: /home/clients-docker/tnayin/mysql
-  volumes:
-   - my-volum-mysql:/var/lib/mysql
-  ports:
-   - 3306:3306
- web:
-  container_name: arm_web
-  restart: always
-  build: /home/clients-docker/tnayin/web
-  volumes:
-   - my-volum-web:/var/www/html
-  ports:
-   - 80:80
- adminer:
-  container_name: arm_adminer
-  restart: always
-  image: phpmyadminer
-  ports:
-   - 8080:80
- volumes:
-   my-volum-mysql:
-   my-volum-web:
+ version: '3.9'
+
+                services:
+                db:
+                    container_name: bns_mysql
+                    image: mherborisi/bns_mysql
+                    volumes:
+                    - my-vol_myqsl:/var/lib/mysql
+                    ports:
+                    - 3306:3306
+                phpmyadmin:
+                    container_name: bns_php_admin
+                    depends_on:
+                    - db
+                    image: phpmyadmin
+                    ports:
+                    - 8080:80
+                web:
+                    container_name: bns_web
+                    image: mherborisi/bns_web
+                    depends_on:
+                    - phpmyadmin
+                    volumes:
+                    - my-vol_web:/var/www/html/file
+                    ports:
+                    - 80:80
+                volumes:
+                my-vol_web:
+                my-vol_myqsl:

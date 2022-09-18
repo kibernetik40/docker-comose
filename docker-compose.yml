@@ -1,6 +1,5 @@
- version: '3.9'
-
-                services:
+version: '3.9'
+services:
                 db:
                     container_name: bns_mysql
                     build: /home/clients-docker/tnayin/mysql
@@ -24,6 +23,6 @@
                     - my-vol_web:/var/www/html/file
                     ports:
                     - 80:80
-                volumes:
+volumes:
                 my-vol_web:
                 my-vol_myqsl:

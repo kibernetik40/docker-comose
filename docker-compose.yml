@@ -2,7 +2,7 @@ version: '3.9'
 services:
 db:
  container_name: bns_mysql
-  build:: /home/clients-docker/tnayin/mysql/.
+  build: /home/clients-docker/tnayin/mysql/.
  volumes:
    - my-vol_myqsl:/var/lib/mysql
  ports:
@@ -16,7 +16,7 @@ phpmyadmin:
    - 8080:80
 web:
  container_name: bns_web
-  build:: /home/clients-docker/tnayin/web/.
+  build: /home/clients-docker/tnayin/web/.
  depends_on:
    - phpmyadmin
  volumes:

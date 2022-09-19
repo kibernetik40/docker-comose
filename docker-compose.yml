@@ -3,8 +3,6 @@ services:
                 db:
                     container_name: arm_mysql
                     image: armanchik1987/arms_mysql
-                    volumes:
-                    - my-vol_myqsl:/var/lib/mysql
                     ports:
                     - 3306:3306
                 phpmyadmin:
@@ -19,10 +17,5 @@ services:
                     image: armanchik1987/arms_web
                     depends_on:
                     - phpmyadmin
-                    volumes:
-                    - my-vol_web:/var/www/html/
                     ports:
                     - 80:80
-                volumes:
-                my-vol_web:
-                my-vol_myqsl:

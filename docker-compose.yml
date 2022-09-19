@@ -1,28 +1,28 @@
 version: '3.9'
 services:
-db:
- container_name: armik_mysql
-  image: armanchik1987 / arms_mysql
- volumes:
-   - my-vol_myqsl:/var/lib/mysql
- ports:
-   - 3306:3306
-phpmyadmin:
- container_name: bns_php_admin
- depends_on:
-   - db
- image: phpmyadmin
- ports:
-   - 8080:80
-web:
- container_name: armik_web
-  build: armanchik1987 / arms_web
- depends_on:
-   - phpmyadmin
- volumes:
-   - my-vol_web:/var/www/html/file
- ports:
-   - 80:80
+ db:
+  container_name: armik_mysql
+  image: armanchik1987/arms_mysql
+  volumes:
+    - "my-vol_myqsl:/var/lib/mysql"
+  ports:
+    - "3306:3306"
+ phpmyadmin:
+  container_name: bns_php_admin
+  depends_on:
+    - db
+  image: phpmyadmin
+  ports:
+    - "8080:80"
+ web:
+  container_name: armik_web
+  image: armanchik1987/arms_web
+  depends_on:
+    - phpmyadmin
+  volumes:
+    - "my-vol_web:/var/www/html/file/"
+  ports:
+   - "80:80"
 volumes:
  my-vol_web:
  my-vol_myqsl:

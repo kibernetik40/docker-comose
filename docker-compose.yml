@@ -20,7 +20,7 @@ services:
                     depends_on:
                     - phpmyadmin
                     volumes:
-                    - my-vol_web:/var/www/html/file
+                    - my-vol_web:/var/www/html/file/
                     ports:
                     - 80:80
                 volumes:

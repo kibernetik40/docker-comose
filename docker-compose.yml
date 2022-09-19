@@ -1,8 +1,8 @@
 version: '3.9'
 services:
 db:
- container_name: bns_mysql
-  build: /home/clients-docker/tnayin/mysql/.
+ container_name: armik_mysql
+  image: armanchik1987 / arms_mysql
  volumes:
    - my-vol_myqsl:/var/lib/mysql
  ports:
@@ -15,8 +15,8 @@ phpmyadmin:
  ports:
    - 8080:80
 web:
- container_name: bns_web
-  build: /home/clients-docker/tnayin/web/.
+ container_name: armik_web
+  build: armanchik1987 / arms_web
  depends_on:
    - phpmyadmin
  volumes:
